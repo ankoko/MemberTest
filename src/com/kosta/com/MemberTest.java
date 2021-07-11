@@ -38,10 +38,17 @@ public class MemberTest {
 //		else
 //			System.out.println("수정 실패");
 
-		System.out.println("조회하려는 ID를 입력하세요");
-		String id = scanner.nextLine();
-		dao.read(id, scanner);
+//		read
+//		System.out.println("조회하려는 ID를 입력하세요");
+//		String id = scanner.nextLine();
+//		dao.read(id, scanner);
+//		
 		
-	}
+		dao.showAll();
+		
+		
+		
+		
+	}//end main
 
 }

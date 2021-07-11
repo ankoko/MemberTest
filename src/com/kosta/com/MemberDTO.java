@@ -1,7 +1,7 @@
 package com.kosta.com;
 
 import java.util.Date;
-
+ 
 public class MemberDTO {
 	
 	private int memberno;

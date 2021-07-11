@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class MemberDAO {
 	private ArrayList<MemberDTO> arr = new ArrayList<>();
 	
-	//create
+	//회원가입
 	public int create(String id, String pw, String name, String email) {
 		Connection conn = getConn();
 		PreparedStatement pstmt = null;
@@ -39,7 +39,7 @@ public class MemberDAO {
 	}//end create
 	
 	
-	//update
+	//회원수정
 	public int update(String id, Scanner sc) {
 		 Connection conn = getConn();
 		 PreparedStatement pstmt = null;
@@ -76,7 +76,7 @@ public class MemberDAO {
 		 return result;
 	}//end update
 	
-	//read
+	//특정회원조회
 	public void read(String id, Scanner sc) {
 		
 		MemberDTO dto = checkID(id);
@@ -93,6 +93,44 @@ public class MemberDAO {
 			 System.out.println(dto.getDates());
 		 }	
 	}//end read
+	
+	
+	//전체조회
+	public void showAll() {
+		Connection conn = getConn();
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+		ResultSet rs = null;
+		
+		try {
+			sql.append("  select       ");
+			sql.append("  memberno     ");
+			sql.append("  , id         ");
+			sql.append("  , name       ");
+			sql.append("  , email      ");
+			sql.append("  , dates      ");
+			sql.append("  from member  ");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				System.out.printf("번호:%d  아이디:%s 이름:%s 이메일:%s 가입일자:%s\n"
+						,rs.getInt("memberno")
+						,rs.getString("id")
+						,rs.getString("name")
+						,rs.getString("email")
+						,rs.getDate("dates")
+						);
+			}
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		finally {
+			close(pstmt, conn);
+			if(rs!=null) try {rs.close();} catch(SQLException e) {}
+		}
+	}//end showAll
 	
 	
 	
@@ -121,7 +159,8 @@ public class MemberDAO {
 		if(pstmt!=null) try {pstmt.close();} catch(SQLException e){System.out.println(e);}	
 	}
 
-
+	
+	//ID조회
 	private MemberDTO checkID(String id) {
 		Connection conn = getConn();
 		PreparedStatement pstmt = null;
