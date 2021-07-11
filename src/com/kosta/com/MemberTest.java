@@ -48,7 +48,7 @@ public class MemberTest {
 				else
 					System.out.println("수정 실패");
 			}
-			
+			 
 			else if (choice.trim().equals("3")) {
 				System.out.println("3.회원삭제");
 				System.out.println("삭제할 ID를 입력하세요 ");

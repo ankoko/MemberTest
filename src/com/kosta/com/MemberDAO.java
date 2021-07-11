@@ -90,7 +90,7 @@ public class MemberDAO {
 			sql.append(" delete from member ");
 			sql.append(" where              ");
 			sql.append(" id = ? ");
-			
+			   
 			try {
 				pstmt = conn.prepareStatement(sql.toString());
 				pstmt.setString(1, id);
