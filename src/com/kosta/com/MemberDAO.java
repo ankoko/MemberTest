@@ -89,8 +89,8 @@ public class MemberDAO {
 			 System.out.printf("패스워드: %s\n",dto.getPw());
 			 System.out.printf("이름: %s\n",dto.getName());
 			 System.out.printf("이메일: %s\n",dto.getEmail());
-			 System.out.printf("가입일자: ");
-			 System.out.println(dto.getDates());
+			 System.out.printf("가입일자: %s\n",dto.getDates());
+		
 		 }	
 	}//end read
 	
@@ -195,7 +195,5 @@ public class MemberDAO {
  		}
 		return dto;
 	}//end checkID
-
-	
 	
 }

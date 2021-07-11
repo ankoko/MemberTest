@@ -12,7 +12,6 @@ public class MemberDTO {
 	private Date dates;
 	
 	//생성자
-	
 	public MemberDTO() {
 		super();
 	}
@@ -22,15 +21,6 @@ public class MemberDTO {
 		this.memberno = memberno;
 		this.id = id;
 		this.pw = pw;
-		this.name = name;
-		this.email = email;
-		this.dates = dates;
-	}
-	
-	public MemberDTO(int memberno, String id, String name, String email, Date dates) {
-		super();
-		this.memberno = memberno;
-		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.dates = dates;
