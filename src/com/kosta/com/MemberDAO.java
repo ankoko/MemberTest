@@ -4,7 +4,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -48,7 +47,7 @@ public class MemberDAO {
 		 
 		 try {
 			 if(dto.getId() == null) {
-				 System.out.println("해당 ID가 없습니다.");
+				 System.out.println("수정할 수 있는 ID가 없습니다.");
 			 }
 	         else{
 				 sql.append("   update  member   ");
@@ -75,13 +74,44 @@ public class MemberDAO {
 		 return result;
 	}//end update
 	
-	//특정회원조회
+	
+	//삭제
+	public int delete(String id) {
+		MemberDTO dto = checkID(id);
+		int result = 0;
+		
+		if(dto.getId() == null) {
+			System.out.println("삭제할 ID가 없습니다.");
+		}
+		else {
+			Connection conn = getConn();
+			PreparedStatement pstmt = null;
+			StringBuilder sql = new StringBuilder();
+			sql.append(" delete from member ");
+			sql.append(" where              ");
+			sql.append(" id = ? ");
+			
+			try {
+				pstmt = conn.prepareStatement(sql.toString());
+				pstmt.setString(1, id);
+				result = pstmt.executeUpdate();
+			}catch(SQLException e) {
+				System.out.println(e);
+			}finally {
+				close(pstmt, conn);
+			}
+		}
+		return result;
+	}
+	
+	
+	//회원조회
 	public void read(String id, Scanner sc) {
 		
 		MemberDTO dto = checkID(id);
 		
 		 if(dto.getId() == null) {
-			 System.out.println("해당 ID가 없습니다.");
+			 System.out.println("조회할 ID가 없습니다.");
 		 }
 		 else {
 			 System.out.printf("아이디: %s\n",dto.getId());
