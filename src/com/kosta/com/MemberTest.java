@@ -7,9 +7,7 @@ public class MemberTest {
 		MemberDAO dao = new MemberDAO();
 		Scanner scanner = new Scanner(System.in);
 
-
-			// create
-			
+//              create
 //				System.out.println("원하는 ID를 입력하세요");
 //				String id = scanner.nextLine();
 //
@@ -31,15 +29,19 @@ public class MemberTest {
 
 
 
-		
-		System.out.println("원하는 ID를 입력하세요");
-		String id = scanner.nextLine();
-		int result = dao.update(id, scanner);
-		if(result>=1)
-			System.out.println("수정 완료");
-		else
-			System.out.println("수정 실패");
+//		update
+//		System.out.println("원하는 ID를 입력하세요");
+//		String id = scanner.nextLine();
+//		int result = dao.update(id, scanner);
+//		if(result>=1)
+//			System.out.println("수정 완료");
+//		else
+//			System.out.println("수정 실패");
 
+		System.out.println("조회하려는 ID를 입력하세요");
+		String id = scanner.nextLine();
+		dao.read(id, scanner);
+		
 	}
 
 }

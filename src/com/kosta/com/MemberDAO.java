@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class MemberDAO {
 	private ArrayList<MemberDTO> arr = new ArrayList<>();
 	
@@ -73,7 +74,27 @@ public class MemberDAO {
 			 close(pstmt, conn);
 		 }
 		 return result;
-	}
+	}//end update
+	
+	//read
+	public void read(String id, Scanner sc) {
+		
+		MemberDTO dto = checkID(id);
+		
+		 if(dto.getId() == null) {
+			 System.out.println("해당 ID가 없습니다.");
+		 }
+		 else {
+			 System.out.printf("아이디: %s\n",dto.getId());
+			 System.out.printf("패스워드: %s\n",dto.getPw());
+			 System.out.printf("이름: %s\n",dto.getName());
+			 System.out.printf("이메일: %s\n",dto.getEmail());
+			 System.out.printf("가입일자: ");
+			 System.out.println(dto.getDates());
+		 }	
+	}//end read
+	
+	
 	
 	
 	
