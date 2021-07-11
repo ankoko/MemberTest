@@ -54,7 +54,7 @@ public class MemberTest {
 				System.out.println("삭제할 ID를 입력하세요 ");
 				String id = scanner.nextLine();
 				int result = dao.delete(id);
-				if(result >=1)
+				if(result >=1) 
 					System.out.println("삭제완료");
 				else 
 					System.out.println("삭제 실패");

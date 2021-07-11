@@ -83,7 +83,7 @@ public class MemberDAO {
 		if(dto.getId() == null) {
 			System.out.println("삭제할 ID가 없습니다.");
 		}
-		else {
+		else { 
 			Connection conn = getConn();
 			PreparedStatement pstmt = null;
 			StringBuilder sql = new StringBuilder();
