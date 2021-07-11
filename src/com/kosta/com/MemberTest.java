@@ -10,7 +10,7 @@ public class MemberTest {
 		while(true) {
 			
 			System.out.println("=======================================================");
-			System.out.println("메뉴\n1.회원가입\t 2.회원수정\t 4.회원보기\t 5.전체조회\t 6.종료");
+			System.out.println("Menu\n1.회원가입\t 2.회원수정\t 4.회원보기\t 5.전체조회\t 6.종료");
 			System.out.println("=======================================================");
 			System.out.println(" 원하는 메뉴를 입력하세요 " );
 			String choice = scanner.nextLine();

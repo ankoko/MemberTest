@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 
 public class MemberDAO {
-	private ArrayList<MemberDTO> arr = new ArrayList<>();
 	
 	//회원가입
 	public int create(String id, String pw, String name, String email) {
@@ -146,7 +145,7 @@ public class MemberDAO {
 		try {
 			Class.forName(className);
 			conn = DriverManager.getConnection(url, user, pwd);
-			System.out.println("작동중");
+			//System.out.println("작동중");
 		}catch(SQLException| ClassNotFoundException e) {
 			System.out.println(e);
 		}
